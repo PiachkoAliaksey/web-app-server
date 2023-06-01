@@ -12,7 +12,7 @@ import { register, login, getMe,getAllUsers,deleteOne , update} from './controll
 const MONGO_URL = 'mongodb+srv://pechkoaleks:kMBCbcWIXBe3MiaJ@datacloud.w2wnoou.mongodb.net/webApp?retryWrites=true&w=majority';
 
 mongoose
-    .connect(MONGO_URL)
+    .connect(process.env.MONGO_URL)
     .then(() => console.log('DB OK'))
     .catch((error) => console.log('DB error', error));
 
@@ -30,6 +30,6 @@ app.get('/auth/table', getAllUsers);
 app.delete('/auth/table/:id', checkAuth, deleteOne);
 app.patch('/auth/table/:id', update)
 
-app.listen(4444, () => {
+app.listen(process.env.PORT||4444, () => {
     return console.log('Server OK');
 })
