@@ -6,9 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx nodemon",
-    "build": "rimraf ./build && npx tsc",
-    "start": "npm run build && node/build/main"
+    "dev": "npx nodemon"
   },
   "author": "",
   "license": "ISC",
