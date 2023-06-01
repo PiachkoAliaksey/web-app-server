@@ -41,10 +41,9 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
     try {
         const user = await userModel.findOne({ email: req.body.email });
-        if(user.status==='blocked'){
-            return res.status(404).json({
-                message: 'User is blocked'
-            })
+        if(user._doc.status==='blocked'){
+            const { status, ...userData } = user._doc;
+            return res.json({status})
         }
         if (!user) {
             return res.status(404).json({
@@ -67,7 +66,7 @@ export const login = async (req, res) => {
     } catch (err) {
         console.log(err);
         res.status(500).json({
-            message: 'Failed to register'
+            message: 'Failed to login'
         })
     }
 }
