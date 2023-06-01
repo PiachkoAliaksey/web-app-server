@@ -7,10 +7,6 @@ import checkAuth from './utils/checkAuth.js';
 import { register, login, getMe,getAllUsers,deleteOne , update} from './controllers/userController.js';
 
 
-
-
-const MONGO_URL = 'mongodb+srv://pechkoaleks:kMBCbcWIXBe3MiaJ@datacloud.w2wnoou.mongodb.net/webApp?retryWrites=true&w=majority';
-
 mongoose
     .connect(process.env.MONGO_URL)
     .then(() => console.log('DB OK'))
