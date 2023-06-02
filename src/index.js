@@ -14,11 +14,8 @@ mongoose
 
 const app = express();
 
-app.use(history({
-    verbose: true
-  }))
+
 app.use(express.json());
-app.use(express.static('.'))
 app.use(cors());
 
 
