@@ -18,7 +18,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-
+app.get('/',(res,req)=>{
+    res.setHeader('Access-control-Allow-Credentials','true');
+    res.send('Api is running...');
+})
 app.post('/auth/login', loginValidation, login);
 app.post('/auth/register', registerValidation, register);
 app.get('/auth/me', checkAuth, getMe);
